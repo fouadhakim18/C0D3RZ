@@ -1,4 +1,6 @@
 import 'package:coders/views/auth_screen/login_screen.dart';
+import 'package:coders/views/courses/courses.dart';
+import 'package:coders/views/home_page/home_page.dart';
 import 'package:coders/views/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
             ),
           )),
       home: const SafeArea(
-        child: LoginScreen(),
+        child: Courses(),
       ),
     );
   }
