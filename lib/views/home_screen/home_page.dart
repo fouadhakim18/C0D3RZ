@@ -1,10 +1,12 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:coders/career-dev/career_dev.dart';
+import 'package:coders/views/career-dev/career_dev.dart';
 import 'package:coders/consts/colors.dart';
 import 'package:coders/views/home_screen/home.dart';
 import 'package:coders/views/settings/profile_settings.dart';
 import 'package:coders/views/surveys/surveys.dart';
 import 'package:flutter/material.dart';
+
+import '../courses/courses.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -58,7 +60,7 @@ class _HomePageState extends State<HomePage> {
       case 0:
         return const Home();
       case 1:
-        return const SurveysScreen();
+        return const Courses();
       case 2:
         return const CareerDev();
       case 3:
