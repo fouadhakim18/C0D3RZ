@@ -1,3 +1,4 @@
+import 'package:coders/consts/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -23,33 +24,24 @@ class _CourseCardState extends State<CourseCard> {
     return Container(
       padding: const EdgeInsets.only(
         top: 16,
-        right: 21,
+        right: 10,
         bottom: 22,
-        left: 9,
+        // left: 9,
       ),
       margin: const EdgeInsets.only(top: 17),
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(30, 30, 30, .1),
+        color: Color.fromARGB(19, 136, 81, 130),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          InkWell(
-            onTap: () {
-              setState(() {
-                favorite = !favorite;
-              });
-            },
-            child: Icon(
-              favorite ? Icons.favorite : Icons.favorite_border_outlined,
-              color: Colors.red,
-            ),
-          ),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset(
-                "assets/images/powerpoint-workshop.png",
+                "assets/images/${widget.img}.png",
                 width: 100,
                 height: 100,
               ),
@@ -82,9 +74,10 @@ class _CourseCardState extends State<CourseCard> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SvgPicture.asset(
-                          "assets/images/users.svg",
-                          height: 10,
+                        Icon(
+                          Icons.person_rounded,
+                          color: AppColors.mainColor,
+                          size: 16,
                         ),
                         const SizedBox(
                           width: 5,
@@ -101,7 +94,18 @@ class _CourseCardState extends State<CourseCard> {
                     )
                   ],
                 ),
-              )
+              ),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    favorite = !favorite;
+                  });
+                },
+                child: Icon(
+                  favorite ? Icons.favorite : Icons.favorite_border_outlined,
+                  color: Colors.red,
+                ),
+              ),
             ],
           ),
         ],

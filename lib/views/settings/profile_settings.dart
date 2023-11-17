@@ -1,4 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:coders/views/settings/edit_profile.dart';
+import 'package:coders/views/settings/exit_demand.dart';
 import 'package:coders/widgets/utils/user_data.dart';
 import 'package:coders/views/auth_screen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../consts/colors.dart';
+import '../../widgets/intro_widget.dart';
+import 'profile.dart';
 import 'profile_menu.dart';
 
 class ProfileSettings extends StatefulWidget {
@@ -58,42 +62,20 @@ class _ProfileSettingsState extends State<ProfileSettings> {
             child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.19,
+              height: MediaQuery.of(context).size.height * 0.135,
               child: Stack(
                 children: [
-                  blueIntroWidgetWithoutLogos(),
+                  blueIntroWidgetWithoutLogos(context),
                   Align(
-                    alignment: Alignment.bottomCenter,
-                    child: FutureBuilder(
-                        future: _loadPic(),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            pic = snapshot.data!;
-
-                            return InkWell(
-                                onTap: () {},
-                                child: ClipOval(
-                                  child: CachedNetworkImage(
-                                    imageUrl: snapshot.data!,
-                                    placeholder: (context, url) =>
-                                        const CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                            "assets/images/add-pic.png"),
-                                    fit: BoxFit.cover,
-                                    width: 130,
-                                    height: 130,
-                                  ),
-                                ));
-                          } else if (snapshot.hasError) {
-                            return Center(
-                                child: Text('Error: ${snapshot.error}'));
-                          } else {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          }
-                        }),
-                  )
+                      alignment: Alignment.bottomCenter,
+                      child: InkWell(
+                          onTap: () {},
+                          child: ClipOval(
+                            child: Image.asset(
+                              "assets/images/add-pic.png",
+                              width: 100,
+                            ),
+                          )))
                 ],
               ),
             ),
@@ -101,33 +83,30 @@ class _ProfileSettingsState extends State<ProfileSettings> {
               height: 20,
             ),
             ProfileMenu(
+              text: "View Profile",
+              icon: Icons.person_2_outlined,
+              press: () async {
+                await Future.delayed(const Duration(milliseconds: 150));
+                Get.to(() => ProfilePage());
+              },
+            ),
+            ProfileMenu(
               text: "Edit Profile",
               icon: Icons.person_2_outlined,
               press: () async {
                 await Future.delayed(const Duration(milliseconds: 150));
-                // Get.to(
-                //     () => Profile(
-                //           nameController: nameController,
-                //           emailController: emailController,
-                //           phoneController: phoneController,
-                //           aboutController: aboutController,
-                //           currentCountry: currentCountry,
-                //           currentCity: currentCity,
-                //           currentState: currentState,
-                //           pic: pic,
-                //         ),
-                //     transition: Transition.fadeIn);
+              Get.to(()=> EditProfile());
               },
             ),
             ProfileMenu(
-              text: "Feedback",
+              text: "Feedback / Problems",
               icon: Icons.feedback_outlined,
-              press: () => {},
+              press: () => {_showFeedbackDialog(context)},
             ),
             ProfileMenu(
               text: "Exit demand",
               icon: Icons.report_problem_outlined,
-              press: () => {},
+              press: () => {Get.to(() => ExitDemand())},
             ),
             ProfileMenu(
               text: "About App",
@@ -153,14 +132,40 @@ class _ProfileSettingsState extends State<ProfileSettings> {
     }
   }
 
-  Widget blueIntroWidgetWithoutLogos() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/Ellipse.png'),
-              fit: BoxFit.fill)),
-      height: MediaQuery.of(context).size.height * 0.12,
+  Future<void> _showFeedbackDialog(BuildContext context) async {
+    TextEditingController feedbackController = TextEditingController();
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Enter Your Feedback',
+            style: TextStyle(fontSize: 16),
+          ),
+          content: TextField(
+            controller: feedbackController,
+            maxLines: null,
+            decoration: InputDecoration(
+              hintText: 'Type your feedback here...',
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Feedback: ${feedbackController.text}');
+                Navigator.of(context).pop();
+              },
+              child: Text('Submit'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

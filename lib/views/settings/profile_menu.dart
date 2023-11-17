@@ -30,7 +30,7 @@ class _ProfileMenuState extends State<ProfileMenu> {
       child: TextButton(
         style: TextButton.styleFrom(
           foregroundColor: AppColors.mainGreen,
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(16),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           backgroundColor: const Color.fromARGB(255, 230, 230, 230),

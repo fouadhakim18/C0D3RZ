@@ -1,10 +1,12 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:coders/views/career-dev/career_dev.dart';
 import 'package:coders/consts/colors.dart';
+import 'package:coders/views/golden-employees/golden_employees.dart';
 import 'package:coders/views/home_screen/home.dart';
 import 'package:coders/views/settings/profile_settings.dart';
 import 'package:coders/views/surveys/surveys.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../courses/courses.dart';
 
@@ -18,7 +20,7 @@ class HomePage extends StatefulWidget {
 int _bottomNavIndex = 0;
 final icons = [
   Icons.home_rounded,
-  Icons.person_2_rounded,
+  Icons.lightbulb_sharp,
   Icons.format_list_bulleted_rounded,
   Icons.settings_rounded
 ];
@@ -35,7 +37,9 @@ class _HomePageState extends State<HomePage> {
           Icons.emoji_events,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Get.to(() => GoldenEmployees());
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
@@ -62,7 +66,7 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return const Courses();
       case 2:
-        return const CareerDev();
+        return const SurveysScreen();
       case 3:
         return const ProfileSettings();
       default:

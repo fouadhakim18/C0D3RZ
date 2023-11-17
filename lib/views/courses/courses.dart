@@ -1,3 +1,4 @@
+import 'package:coders/consts/colors.dart';
 import 'package:coders/widgets/course_card.dart';
 import 'package:flutter/material.dart';
 
@@ -59,17 +60,17 @@ class _CoursesState extends State<Courses> {
                 suffixIcon: const Icon(
                   Icons.search,
                   size: 25,
-                  color: Color.fromRGBO(0, 0, 0, 0.61),
+                  color: AppColors.mainColor,
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(11),
                   borderSide: const BorderSide(
-                    color: Color.fromRGBO(0, 0, 0, 0.30),
+                    color: AppColors.mainColor,
                   ),
                 ),
                 focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color.fromRGBO(0, 0, 0, 0.61),
+                    color: AppColors.mainColor,
                     width: 1.0,
                     style: BorderStyle.solid,
                   ),
@@ -107,13 +108,10 @@ class _CoursesState extends State<Courses> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: activeIndex == 0
-                              ? const Color(0xff2FCFAA)
+                              ? AppColors.mainColor
                               : const Color(0xffF6F7F0),
                           side: BorderSide(
-                            color: activeIndex == 0
-                                ? const Color(0xff2FCFAA)
-                                : const Color.fromRGBO(
-                                    0, 0, 0, 0.20), // Border color
+                            color: AppColors.mainColor, // Border color
                             width: 1.0,
                           ),
                         ),
@@ -136,13 +134,10 @@ class _CoursesState extends State<Courses> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: activeIndex == 1
-                              ? const Color(0xff2FCFAA)
+                              ? AppColors.mainColor
                               : const Color(0xffF6F7F0),
                           side: BorderSide(
-                            color: activeIndex == 1
-                                ? const Color(0xff2FCFAA)
-                                : const Color.fromRGBO(
-                                    0, 0, 0, 0.20), // Border color
+                            color: AppColors.mainColor, // Border color
                             width: 1.0,
                           ),
                         ),
@@ -166,13 +161,10 @@ class _CoursesState extends State<Courses> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: activeIndex == 2
-                              ? const Color(0xff2FCFAA)
+                              ? AppColors.mainColor
                               : const Color(0xffF6F7F0),
                           side: BorderSide(
-                            color: activeIndex == 2
-                                ? const Color(0xff2FCFAA)
-                                : const Color.fromRGBO(
-                                    0, 0, 0, 0.20), // Border color
+                            color: AppColors.mainColor, // Border color
                             width: 1.0,
                           ),
                         ),
@@ -197,7 +189,7 @@ class _CoursesState extends State<Courses> {
                       itemCount: 100,
                       itemBuilder: (BuildContext context, int index) {
                         return const CourseCard(
-                          img: "project-management-icon",
+                          img: "project",
                           title: "Project management",
                           description:
                               "Learn how to manage your team effectively and organize your projects",
