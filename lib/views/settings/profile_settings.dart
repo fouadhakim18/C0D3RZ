@@ -62,38 +62,13 @@ class _ProfileSettingsState extends State<ProfileSettings> {
               child: Stack(
                 children: [
                   blueIntroWidgetWithoutLogos(),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: FutureBuilder(
-                        future: _loadPic(),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            pic = snapshot.data!;
-
-                            return InkWell(
-                                onTap: () {},
-                                child: ClipOval(
-                                  child: CachedNetworkImage(
-                                    imageUrl: snapshot.data!,
-                                    placeholder: (context, url) =>
-                                        const CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                            "assets/images/add-pic.png"),
-                                    fit: BoxFit.cover,
-                                    width: 130,
-                                    height: 130,
-                                  ),
-                                ));
-                          } else if (snapshot.hasError) {
-                            return Center(
-                                child: Text('Error: ${snapshot.error}'));
-                          } else {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          }
-                        }),
-                  )
+                  Center(
+                    child: ClipOval(
+                      child: Image.asset(
+                        "assets/images/add-pic.png",
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

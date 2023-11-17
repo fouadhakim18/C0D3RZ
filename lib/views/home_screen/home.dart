@@ -1,3 +1,4 @@
+import 'package:coders/views/home_page/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -5,6 +6,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return SafeArea(
+      child: const HomeScreen(),
+    );
   }
 }

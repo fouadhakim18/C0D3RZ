@@ -1,4 +1,4 @@
-import 'package:coders/widgets/course_card.dart';
+import 'package:coders/widgets/course_employee_card.dart';
 import 'package:flutter/material.dart';
 
 class Courses extends StatefulWidget {
@@ -113,7 +113,11 @@ class _CoursesState extends State<Courses> {
                             color: activeIndex == 0
                                 ? const Color(0xff2FCFAA)
                                 : const Color.fromRGBO(
-                                    0, 0, 0, 0.20), // Border color
+                                    0,
+                                    0,
+                                    0,
+                                    0.20,
+                                  ), // Border color
                             width: 1.0,
                           ),
                         ),

@@ -18,7 +18,7 @@ class PageCard extends StatelessWidget {
         children: [
           Card(
             margin: const EdgeInsets.symmetric(
-              horizontal: 10,
+              horizontal: 13,
             ),
             color: color,
             shape: RoundedRectangleBorder(
@@ -28,11 +28,11 @@ class PageCard extends StatelessWidget {
             ),
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
+                  const EdgeInsets.symmetric(vertical: 24.0, horizontal: 30.0),
               child: SvgPicture.asset(
                 "assets/images/$img.svg",
-                height: 20,
-                width: 20,
+                height: 25,
+                width: 25,
               ),
             ),
           ),
@@ -40,12 +40,12 @@ class PageCard extends StatelessWidget {
             height: 6,
           ),
           SizedBox(
-            width: 65,
+            width: 80,
             child: Text(
               label,
               style: const TextStyle(
                 color: Color(0xff393C56),
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
               textAlign: TextAlign.center,

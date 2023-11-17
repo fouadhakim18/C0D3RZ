@@ -1,10 +1,12 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:coders/views/career-dev/career_dev.dart';
 import 'package:coders/consts/colors.dart';
+import 'package:coders/views/golden-employees/golden_employees.dart';
 import 'package:coders/views/home_screen/home.dart';
 import 'package:coders/views/settings/profile_settings.dart';
 import 'package:coders/views/surveys/surveys.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../courses/courses.dart';
 
@@ -26,32 +28,36 @@ final icons = [
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: getSelectedWidget(index: _bottomNavIndex),
-      floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(),
-        backgroundColor: AppColors.mainGreen,
-        child: Icon(
-          Icons.emoji_events,
-          color: Colors.white,
-        ),
-        onPressed: () {},
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-          itemCount: 4,
-          tabBuilder: (int index, bool isActive) {
-            return Icon(
-              icons[index],
-              size: 24,
-              color: isActive ? AppColors.mainGreen : AppColors.lightGrey3,
-            );
+    return SafeArea(
+      child: Scaffold(
+        body: getSelectedWidget(index: _bottomNavIndex),
+        floatingActionButton: FloatingActionButton(
+          shape: const CircleBorder(),
+          backgroundColor: AppColors.mainGreen,
+          child: const Icon(
+            Icons.emoji_events,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Get.to(const GoldenEmployees());
           },
-          activeIndex: _bottomNavIndex,
-          gapLocation: GapLocation.center,
-          onTap: (index) {
-            setState(() => _bottomNavIndex = index);
-          }),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+            itemCount: 4,
+            tabBuilder: (int index, bool isActive) {
+              return Icon(
+                icons[index],
+                size: 24,
+                color: isActive ? AppColors.mainGreen : AppColors.lightGrey3,
+              );
+            },
+            activeIndex: _bottomNavIndex,
+            gapLocation: GapLocation.center,
+            onTap: (index) {
+              setState(() => _bottomNavIndex = index);
+            }),
+      ),
     );
   }
 
