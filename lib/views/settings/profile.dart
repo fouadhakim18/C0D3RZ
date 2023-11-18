@@ -1,5 +1,4 @@
 import 'package:coders/consts/styles.dart';
-import 'package:coders/widgets/intro_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -60,8 +59,9 @@ class ProfilePage extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: AppColors.secondaryColor,
-                          borderRadius: BorderRadius.circular(8)),
+                        color: AppColors.secondaryColor,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                       child: TextButton(
                         onPressed: () {},
                         child: Text(

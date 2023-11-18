@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:coders/controllers/auth_controller.dart';
 import 'package:coders/views/auth_screen/login_screen.dart';
 import 'package:coders/views/home_screen/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,15 +15,12 @@ class PendingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(AuthController());
     return Scaffold(
       body: StreamBuilder<DocumentSnapshot>(
-        stream:
-            // controller.checkApprovalStatus(),
-            FirebaseFirestore.instance
-                .collection('employees')
-                .doc(FirebaseAuth.instance.currentUser!.uid)
-                .snapshots(),
+        stream: FirebaseFirestore.instance
+            .collection('employees')
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .snapshots(),
         builder:
             (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (!snapshot.hasData) {
@@ -34,23 +30,18 @@ class PendingPage extends StatelessWidget {
           }
           var userDocument = snapshot.data;
           if (userDocument!['status'] == "pending") {
-            // User is not accepted yet, show waiting page
-
             return Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset("assets/images/waiting.png"),
-                  // const Image(
-                  //     image: AssetImage("assets/images/Post-rafiki.png")),
                   const Padding(
                     padding: EdgeInsets.all(18.0),
                     child: Text(
                       "Your profile is currently under review by the admin.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        // fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                     ),
@@ -61,7 +52,6 @@ class PendingPage extends StatelessWidget {
                       "You will receive a notification once your account is approved",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        // fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                     ),
@@ -94,7 +84,6 @@ class PendingPage extends StatelessWidget {
                       "your account has been temporarily blocked by the administrator.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        // fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                     ),
@@ -105,7 +94,6 @@ class PendingPage extends StatelessWidget {
                       "During this period, you will not be able to access your account ",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        // fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                     ),
@@ -125,7 +113,6 @@ class PendingPage extends StatelessWidget {
               ),
             );
           } else {
-            // User is accepted, navigate to home page
             return const HomePage();
           }
         },
@@ -136,7 +123,6 @@ class PendingPage extends StatelessWidget {
   Future<void> signOut() async {
     try {
       await FirebaseAuth.instance.signOut();
-
       Get.to(() => const LoginScreen());
     } catch (e) {
       print(e.toString());

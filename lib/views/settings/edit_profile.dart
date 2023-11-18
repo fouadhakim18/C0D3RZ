@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coders/consts/styles.dart';
 import 'package:coders/controllers/edit_profile_controller.dart';
@@ -8,7 +7,6 @@ import 'package:get/get.dart';
 
 import '../../consts/colors.dart';
 
-// ignore: must_be_immutable
 class EditProfile extends StatefulWidget {
   @override
   State<EditProfile> createState() => _ProfileState();
@@ -125,7 +123,6 @@ class _ProfileState extends State<EditProfile> {
     );
   }
 
-  // ignore: non_constant_identifier_names
   TextFieldWidget(
     TextEditingController controller,
     String title,
@@ -173,7 +170,6 @@ class _ProfileState extends State<EditProfile> {
     );
   }
 
-  // ignore: non_constant_identifier_names
   Widget Button(String title, Function onPressed, Color color) {
     return MaterialButton(
       height: 50,

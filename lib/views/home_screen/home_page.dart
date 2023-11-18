@@ -1,5 +1,4 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:coders/views/career-dev/career_dev.dart';
 import 'package:coders/consts/colors.dart';
 import 'package:coders/views/golden-employees/golden_employees.dart';
 import 'package:coders/views/home_screen/home.dart';

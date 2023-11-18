@@ -1,4 +1,3 @@
-import 'package:coders/views/auth_screen/login_screen.dart';
 import 'package:coders/views/onboarding/onboarding_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

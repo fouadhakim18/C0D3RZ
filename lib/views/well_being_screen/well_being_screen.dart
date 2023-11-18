@@ -1,7 +1,6 @@
 import 'package:coders/consts/colors.dart';
 import 'package:coders/consts/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class WellBeingPage extends StatelessWidget {
   @override
@@ -32,7 +31,6 @@ class WellBeingArticles extends StatelessWidget {
       'description':
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit...',
     },
-    // Add more articles...
   ];
 
   @override
@@ -108,9 +106,11 @@ class _ExpandableTextState extends State<ExpandableText> {
         ),
         GestureDetector(
           onTap: () {
-            setState(() {
-              _expanded = !_expanded;
-            });
+            setState(
+              () {
+                _expanded = !_expanded;
+              },
+            );
           },
           child: Text(
             _expanded ? 'Read Less' : 'Read More',

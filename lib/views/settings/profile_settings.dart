@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coders/views/settings/edit_profile.dart';
 import 'package:coders/views/settings/exit_demand.dart';
 import 'package:coders/widgets/utils/user_data.dart';
@@ -40,26 +39,18 @@ class _ProfileSettingsState extends State<ProfileSettings> {
     final userData = await UserData().getUserData();
     nameController.text = userData.get('name');
     emailController.text = userData.get('email');
-    // phoneController.text = userData.get('Phone');
-    // aboutController.text = userData.get('AboutEmployee') ?? "";
-  }
-
-  Future<String> _loadPic() async {
-    final userData = await UserData().getUserData();
-    // pic = userData.get("Pic");
-    return "";
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: GestureDetector(onTap: () {}, child: const SizedBox()),
-          backgroundColor: AppColors.mainGreen,
-          elevation: 0,
-        ),
-        body: SingleChildScrollView(
-            child: Column(
+      appBar: AppBar(
+        leading: GestureDetector(onTap: () {}, child: const SizedBox()),
+        backgroundColor: AppColors.mainGreen,
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.135,
@@ -67,15 +58,17 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                 children: [
                   blueIntroWidgetWithoutLogos(context),
                   Align(
-                      alignment: Alignment.bottomCenter,
-                      child: InkWell(
-                          onTap: () {},
-                          child: ClipOval(
-                            child: Image.asset(
-                              "assets/images/add-pic.png",
-                              width: 100,
-                            ),
-                          )))
+                    alignment: Alignment.bottomCenter,
+                    child: InkWell(
+                      onTap: () {},
+                      child: ClipOval(
+                        child: Image.asset(
+                          "assets/images/add-pic.png",
+                          width: 100,
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -95,7 +88,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
               icon: Icons.person_2_outlined,
               press: () async {
                 await Future.delayed(const Duration(milliseconds: 150));
-              Get.to(()=> EditProfile());
+                Get.to(() => EditProfile());
               },
             ),
             ProfileMenu(
@@ -119,7 +112,9 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                 color: AppColors.redColor,
                 press: () => signOut()),
           ],
-        )));
+        ),
+      ),
+    );
   }
 
   Future<void> signOut() async {

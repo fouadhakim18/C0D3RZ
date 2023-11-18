@@ -12,7 +12,6 @@ class GoldenEmployees extends StatelessWidget {
       Employee('Jane Smith', 'Finance', 'assets/images/add-pic.png', 600, 4),
       Employee('Jane Smith', 'HR', 'assets/images/add-pic.png', 300, 4),
       Employee('Jane Smith', 'HR', 'assets/images/add-pic.png', 300, 4),
-      // Add more employees...
     ];
     employees.sort((a, b) => b.points.compareTo(a.points));
     return Scaffold(
@@ -34,6 +33,7 @@ class GoldenEmployees extends StatelessWidget {
   Widget _buildEmployeeItem(Employee employee) {
     return Card(
       elevation: 3,
+      color: AppColors.white,
       margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Padding(
         padding: EdgeInsets.all(8.0),
@@ -64,15 +64,17 @@ class GoldenEmployees extends StatelessWidget {
                     Text(
                       'Points',
                       style: TextStyle(
-                          color: AppColors.secondaryColor,
-                          fontFamily: AppStyles.semibold),
+                        color: Color.fromARGB(255, 46, 11, 99),
+                        fontFamily: AppStyles.bold,
+                        fontSize: 17,
+                      ),
                     ),
                     Text(
                       '${employee.points}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
-                        color: AppColors.mainColor, // Golden color for points
+                        color: AppColors.mainColor,
                       ),
                     ),
                   ],

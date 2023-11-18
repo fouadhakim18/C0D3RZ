@@ -1,6 +1,5 @@
 import 'package:coders/consts/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CourseCard extends StatefulWidget {
   const CourseCard({

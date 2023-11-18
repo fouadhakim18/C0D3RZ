@@ -1,5 +1,6 @@
 import 'package:coders/views/auth_screen/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../consts/colors.dart';
@@ -15,7 +16,7 @@ class OnboardingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset("assets/images/Group 1.png"),
+            SvgPicture.asset("assets/images/onboarding-icon.svg", height: 300,),
             const SizedBox(
               height: 40,
             ),

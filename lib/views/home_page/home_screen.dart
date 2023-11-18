@@ -4,7 +4,6 @@ import 'package:coders/views/surveys/surveys.dart';
 import 'package:coders/widgets/course_employee_card.dart';
 import 'package:coders/widgets/page_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_survey/flutter_survey.dart';
 import 'package:get/get.dart';
 
 import '../well_being_screen/well_being_screen.dart';
@@ -13,26 +12,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    const cards = [
-      {
-        "img": "project-managmenet",
-        "title": "Project management",
-        "description":
-            "Learn how to manage your team effectively and organize your projects"
-      },
-      {
-        "img": "project-managmenet",
-        "title": "Project management",
-        "description":
-            "Learn how to manage your team effectively and organize your projects"
-      },
-      {
-        "img": "project-managmenet",
-        "title": "Project management",
-        "description":
-            "Learn how to manage your team effectively and organize your projects"
-      }
-    ];
+    
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -189,7 +169,7 @@ class HomeScreen extends StatelessWidget {
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: cards.length,
+                itemCount: 6,
                 itemBuilder: (BuildContext context, int index) {
                   return const CourseCard(
                     img: "project",

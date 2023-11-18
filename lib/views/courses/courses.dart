@@ -187,7 +187,7 @@ class _CoursesState extends State<Courses> {
                   ),
                   Flexible(
                     child: ListView.builder(
-                      itemCount: 100,
+                      itemCount: 10,
                       itemBuilder: (BuildContext context, int index) {
                         return const CourseCard(
                           img: "project",
