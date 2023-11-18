@@ -1,6 +1,7 @@
 import 'package:coders/consts/colors.dart';
-import 'package:coders/widgets/course_card.dart';
 import 'package:flutter/material.dart';
+
+import '../../widgets/course_employee_card.dart';
 
 class Courses extends StatefulWidget {
   const Courses({super.key});

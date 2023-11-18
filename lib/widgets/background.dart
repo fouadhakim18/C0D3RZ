@@ -16,13 +16,19 @@ Widget bgWidget({Widget? child, bool addLogo = true, bool top = false}) {
       //         AppColors.mainColor.withOpacity(0.10), BlendMode.dstATop))),
     ),
     child: Stack(children: [
-      // if (addLogo)
-      //   const Positioned(
-      //     right: 50,
-      //     left: 50,
-      //     top: 50,
-      //     child: Image(image: AssetImage("assets/icons/Logo (6).png")),
-      //   ),
+      if (addLogo)
+        const Positioned(
+          right: 50,
+          left: 50,
+          top: 50,
+          child: Image(
+            image: AssetImage(
+              "assets/images/coders.png",
+            ),
+            width: 110,
+            height: 110,
+          ),
+        ),
       if (!top)
         Positioned(
           bottom: 0,

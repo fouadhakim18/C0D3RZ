@@ -28,34 +28,36 @@ final icons = [
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: getSelectedWidget(index: _bottomNavIndex),
-      floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(),
-        backgroundColor: AppColors.mainGreen,
-        child: Icon(
-          Icons.emoji_events,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          Get.to(() => GoldenEmployees());
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-          itemCount: 4,
-          tabBuilder: (int index, bool isActive) {
-            return Icon(
-              icons[index],
-              size: 24,
-              color: isActive ? AppColors.mainGreen : AppColors.lightGrey3,
-            );
+    return SafeArea(
+      child: Scaffold(
+        body: getSelectedWidget(index: _bottomNavIndex),
+        floatingActionButton: FloatingActionButton(
+          shape: const CircleBorder(),
+          backgroundColor: AppColors.mainGreen,
+          child: const Icon(
+            Icons.emoji_events,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Get.to(const GoldenEmployees());
           },
-          activeIndex: _bottomNavIndex,
-          gapLocation: GapLocation.center,
-          onTap: (index) {
-            setState(() => _bottomNavIndex = index);
-          }),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+            itemCount: 4,
+            tabBuilder: (int index, bool isActive) {
+              return Icon(
+                icons[index],
+                size: 24,
+                color: isActive ? AppColors.mainGreen : AppColors.lightGrey3,
+              );
+            },
+            activeIndex: _bottomNavIndex,
+            gapLocation: GapLocation.center,
+            onTap: (index) {
+              setState(() => _bottomNavIndex = index);
+            }),
+      ),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class PageCard extends StatelessWidget {
   const PageCard({
@@ -13,48 +14,42 @@ class PageCard extends StatelessWidget {
   final Color color;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Column(
-        children: [
-          Card(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 10,
-            ),
-            color: color,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                10,
-              ),
-            ),
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
-              child: SvgPicture.asset(
-                "assets/images/$img.svg",
-                height: 20,
-                width: 20,
-              ),
+    return Column(
+      children: [
+        Card(
+          margin: const EdgeInsets.symmetric(
+            horizontal: 13,
+          ),
+          color: color,
+          shape: CircleBorder(),
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 21.0, horizontal: 26.0),
+            child: SvgPicture.asset(
+              "assets/images/$img.svg",
+              height: 25,
+              width: 25,
             ),
           ),
-          const SizedBox(
-            height: 6,
-          ),
-          SizedBox(
-            width: 65,
-            child: Text(
-              label,
-              style: const TextStyle(
-                color: Color(0xff393C56),
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.center,
-              softWrap: true,
-              overflow: TextOverflow.clip,
+        ),
+        const SizedBox(
+          height: 6,
+        ),
+        SizedBox(
+          width: 80,
+          child: Text(
+            label,
+            style: const TextStyle(
+              color: Color(0xff393C56),
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
             ),
+            textAlign: TextAlign.center,
+            softWrap: true,
+            overflow: TextOverflow.clip,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

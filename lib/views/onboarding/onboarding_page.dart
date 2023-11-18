@@ -2,6 +2,8 @@ import 'package:coders/views/auth_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../consts/colors.dart';
+
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
@@ -13,7 +15,7 @@ class OnboardingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset("assets/images/onboarding.png"),
+            Image.asset("assets/images/Group 1.png"),
             const SizedBox(
               height: 40,
             ),
@@ -39,7 +41,7 @@ class OnboardingPage extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(11),
               ),
-              color: const Color(0xff2FCFAA),
+              color: AppColors.mainColor,
               padding: const EdgeInsets.symmetric(
                 horizontal: 80,
                 vertical: 12,

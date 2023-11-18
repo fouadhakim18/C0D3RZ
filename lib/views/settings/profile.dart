@@ -1,3 +1,4 @@
+import 'package:coders/consts/styles.dart';
 import 'package:coders/widgets/intro_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -16,6 +17,14 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              SizedBox(
+                height: 50,
+              ),
+              Image.asset(
+                "assets/images/coders-purple.png",
+                width: 130,
+                height: 130,
+              ),
               Spacer(),
               Container(
                 width: double.infinity,
@@ -57,7 +66,9 @@ class ProfilePage extends StatelessWidget {
                         onPressed: () {},
                         child: Text(
                           "See golden members",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: AppStyles.semibold),
                         ),
                       ),
                     ),
