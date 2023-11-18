@@ -1,3 +1,4 @@
+import 'package:coders/views/home_screen/home_page.dart';
 import 'package:coders/views/onboarding/onboarding_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -6,6 +7,7 @@ import 'package:get/get.dart';
 import 'consts/colors.dart';
 import 'consts/styles.dart';
 import 'firebase_options.dart';
+import 'views/auth_screen/login_screen.dart';
 import 'views/auth_screen/pending_page.dart';
 
 Future<void> main() async {
@@ -56,9 +58,9 @@ class MyApp extends StatelessWidget {
                 child: Text("Something went wrong"),
               );
             } else if (snapshot.hasData) {
-              return PendingPage();
+              return HomePage();
             } else {
-              return const OnboardingPage();
+              return const LoginScreen();
             }
           },
         ),

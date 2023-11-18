@@ -28,11 +28,12 @@ class AuthController extends GetxController {
           .set({
         'name': name,
         'email': email,
-        'password': password, 
+        'password': password,
         'status': 'pending',
       });
       // Optionally send email verification
       // await userCredential.user!.sendEmailVerification();
+      Get.to(() => HomePage());
     } catch (e) {
       print('Error registering user: $e');
     }
@@ -53,12 +54,14 @@ class AuthController extends GetxController {
           .get();
 
       if (userSnapshot.exists) {
-        bool isApproved = userSnapshot['status'] != "pending";
-        if (isApproved) {
-          Get.to(() => const HomePage(), transition: Transition.fadeIn);
-        } else {
-          Get.to(() => PendingPage(), transition: Transition.fadeIn);
-        }
+        Get.to(() => const HomePage(), transition: Transition.fadeIn);
+
+        // bool isApproved = userSnapshot['status'] != "pending";
+        // if (isApproved) {
+        //   Get.to(() => const HomePage(), transition: Transition.fadeIn);
+        // } else {
+        //   Get.to(() => PendingPage(), transition: Transition.fadeIn);
+        // }
       }
       print("logged in");
     } on FirebaseAuthException catch (e) {
